@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo</title>
+
+    <link rel="stylesheet" href="CSS/modelos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="hero">
+
+        <h1 class="titulo">Kirby <3 </h1>
+
+        <div class="video-container">
+            <video id="video" autoplay loop muted playsinline controls>
+                <source src="img/kirby_perez.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <!-- Música de fondo -->
+        <audio id="musica" loop>
+            <source src="audio/Kirby RAP.mp3" type="audio/mpeg">
+        </audio>
+
+        <!-- BOTÓN -->
+        <a href="index.html" class="btn-volver">← Volver al inicio</a>
+
+    </div>
+
+    <script>
+        const video = document.getElementById("video");
+        const musica = document.getElementById("musica");
+
+        // Al dar el primer clic inicia el audio y activa el sonido del video
+        document.addEventListener("click", () => {
+            video.muted = false;
+            video.play();
+            musica.play();
+        }, { once: true });
+
+        // Si el usuario pausa el video, también pausa la música
+        video.addEventListener("pause", () => {
+            musica.pause();
+        });
+
+        // Si vuelve a reproducir el video, continúa la música
+        video.addEventListener("play", () => {
+            musica.play();
+        });
+    </script>
+
+</body>
+</html>
