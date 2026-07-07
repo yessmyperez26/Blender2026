@@ -1,0 +1,186 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+body{
+    background:url("../img/fondo.png");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+}
+
+/* oscurece un poco el fondo */
+body::before{
+    content:"";
+    position:fixed;
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    background: url("../img/fondo.png") center center/cover no-repeat;
+
+    z-index:-1;
+
+    animation: zoomFondo 8s ease-in-out infinite alternate;
+}
+
+/* animación */
+@keyframes zoomFondo{
+    0%{
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(1.08);
+    }
+}
+
+.hero{
+
+    width:100%;
+    height:100vh;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:15px;
+    margin-bottom:60px;
+}
+
+.logo img{
+    width:90px;
+    height:auto;
+
+}
+.logo h1{
+    font-size:50px;
+    font-family:'Outfit', sans-serif;
+    color:white;
+    font-weight:700;
+    margin:0;
+    line-height:1;
+    text-shadow:0 4px 10px rgba(0,0,0,.4);
+}
+
+/* CONTENEDOR */
+
+.contenedor{
+
+    display:flex;
+    gap:70px;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+
+}
+
+/* TARJETAS */
+
+.card{
+
+    width:430px;
+    height:470px;
+
+    background:rgba(255,255,255,.35);
+
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,.4);
+
+    border-radius:35px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    transition:.4s;
+
+    box-shadow:0 20px 40px rgba(0,0,0,.25);
+
+}
+
+.card:hover{
+
+    transform:translateY(-10px);
+
+    background:rgba(255,255,255,.45);
+
+}
+/* IMAGEN DE KIRBY */
+.kirby-img{
+
+    width:150px;
+    height:150px;
+
+    object-fit:contain;
+
+    display:block;
+
+    margin:0 auto 30px;
+
+    transition:transform .4s ease;
+}
+.card:hover .kirby-img{
+
+    transform:scale(1.1);
+
+}
+/* LINEA */
+
+.linea{
+
+    width:90px;
+    height:4px;
+
+    background:#f57c00;
+
+    border-radius:10px;
+
+    margin-bottom:30px;
+
+}
+
+/* TEXTO */
+
+.card p{
+
+    width:75%;
+
+    font-size:24px;
+
+    line-height:40px;
+
+    color:#444;
+
+}
+/* QUITAR ESTILO AZUL DEL LINK */
+.card-link{
+    text-decoration: none;   /* quita subrayado */
+    color: inherit;          /* hereda colores de la card */
+    display: block;          /* hace que toda la tarjeta sea clicable */
+}
+
+/* QUITAR FOCO AZUL AL HACER CLICK */
+.card-link:focus,
+.card-link:active{
+    outline: none;
+}
+
+/* OPCIONAL: evita cambios raros en hover del link */
+.card-link:hover{
+    color: inherit;
+}
